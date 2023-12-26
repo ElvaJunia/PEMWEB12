@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Image Picker</title>
+    <style>
+        body {
+            background-color: beige
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Picker</h1>
+    <label for="animal-select">Pilih hewan:</label>
+    <select id="selectAnimal">
+        <option value="Sloth.jpg">Sloth</option>
+        <option value="Orca.jpg" selected>Orca</option>
+        <option value="Llama.jpg">Llama</option>
+        <option value="Red Panda.jpg">Red Panda</option>
+        <option value="Squirrel.jpg">Squirrel</option>
+    </select>
+    <br />
+    <br />
+    <img src="" id="image" />
+    </div>
+
+    <script>
+        // tangkap elemen yg dibutuhkan
+        const selectAnimal = document.getElementById("selectAnimal");
+        const image = document.getElementById("image");
+
+        // panggil fungsi changeImage ketika tag select berubah
+        selectAnimal.addEventListener("change", changeImage);
+
+        // fungsi utk ubah source image
+        function changeImage() {
+            image.src = "img/" + selectAnimal.value;
+
+            // Tunda alert selama 2 detik (100 milidetik) agar gambar muncul pertama
+            setTimeout(function () {
+                alert("Gambar telah diubah menjadi " + selectAnimal.value);
+            }, 100);
+        }
+
+        // panggil fungsi
+        changeImage();
+    </script>
+
+</body>
+
+</html>
